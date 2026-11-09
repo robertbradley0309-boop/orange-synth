@@ -30,7 +30,7 @@ juce_add_plugin(OrangeSynth
     COPY_PLUGIN_AFTER_BUILD FALSE
 )
 
-target_sources(OrangeSynth PRIVATE
+juce_generate_juce_header(OrangeSynth)
     Source/PluginProcessor.cpp
     Source/PluginEditor.cpp
 )
