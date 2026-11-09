@@ -1,1 +1,36 @@
+name: Build ORANGE VST3
+
+on:
+workflow_dispatch:
+push:
+branches:
+\- main
+
+jobs:
+build-windows:
+runs-on: windows-latest
+
+```
+steps:
+  - name: Check out ORANGE
+    uses: actions/checkout@v4
+
+  - name: Check out JUCE
+    uses: actions/checkout@v4
+    with:
+      repository: juce-framework/JUCE
+      path: JUCE
+
+  - name: Configure
+    run: cmake -S . -B build -A x64
+
+  - name: Build VST3
+    run: cmake --build build --config Release --target ORANGE_VST3
+
+  - name: Upload VST3
+    uses: actions/upload-artifact@v4
+    with:
+      name: ORANGE-Windows-VST3
+      path: build/ORANGE_artefacts/Release/VST3/ORANGE.vst3
+```
 
