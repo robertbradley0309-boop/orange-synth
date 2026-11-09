@@ -164,7 +164,7 @@ void OrangeSynthAudioProcessor::applyPresetObject(const juce::var& obj)
     for (auto* id : ids) {
         if (params.hasProperty(id))
             if (auto* ranged = dynamic_cast<juce::RangedAudioParameter*>(parameters.getParameter(id)))
-               ranged->setValueNotifyingHost(ranged->convertTo0to1((float)params.getProperty(id, {})));
+               ranged->setValueNotifyingHost(ranged->convertTo0to1((float)params.getProperty(id, {})
     }
 }
 void OrangeSynthAudioProcessor::loadPreset(int index)
