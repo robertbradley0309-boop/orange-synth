@@ -24,7 +24,7 @@ jobs:
         run: cmake -S OrangeSynth_VST3_Project -B build -A x64
 
       - name: Build VST3
-        run: cmake --build build --config Release --target ORANGE_VST3
+        run: cmake --build build --config Release --target OrangeSynth_VST3
 
       - name: Upload VST3
         uses: actions/upload-artifact@v4
