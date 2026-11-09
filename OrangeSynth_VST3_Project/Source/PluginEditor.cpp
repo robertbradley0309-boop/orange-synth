@@ -14,10 +14,7 @@ OrangeSynthAudioProcessorEditor::OrangeSynthAudioProcessorEditor(OrangeSynthAudi
     addAndMakeVisible(prev); addAndMakeVisible(next); addAndMakeVisible(save);
     prev.onClick=[this]{presets.setSelectedItemIndex(juce::jmax(0,presets.getSelectedItemIndex()-1));};
     next.onClick=[this]{presets.setSelectedItemIndex(juce::jmin(presets.getNumItems()-1,presets.getSelectedItemIndex()+1));};
-    save.onClick=[this]{
-        juce::AlertWindow w("Save preset","Name your preset:",juce::AlertWindow::NoIcon);
-        w.addTextEditor("name","My Preset"); w.addButton("Save",1); w.addButton("Cancel",0);
-        if(w.runModalLoop()==1 && processor.saveUserPreset(w.getTextEditorContents("name"))) refreshPresets();
+    save.onClick = [] {};
     };
     const char* ids[]={"wave","oscMix","sub","detune","cutoff","resonance","attack","decay","sustain","release","drive","reverb","lfoRate","lfoDepth","level"};
     const char* names[]={"WAVE","OSC MIX","SUB","DETUNE","CUTOFF","RESONANCE","ATTACK","DECAY","SUSTAIN","RELEASE","DRIVE","REVERB","LFO RATE","LFO DEPTH","LEVEL"};
