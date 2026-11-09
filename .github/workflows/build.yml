@@ -18,10 +18,10 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: juce-framework/JUCE
-          path: ORANGE_Synth_GitHub_Project/JUCE
+          path: OrangeSynth_VST3_Project/JUCE
 
       - name: Configure
-        run: cmake -S ORANGE_Synth_GitHub_Project -B build -A x64
+        run: cmake -S OrangeSynth_VST3_Project -B build -A x64
 
       - name: Build VST3
         run: cmake --build build --config Release --target ORANGE_VST3
